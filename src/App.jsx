@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RecruitmentForm from './RecruitmentForm';
+import RecruitmentDetail from './RecruitmentDetail'; // 임포트한 RecruitmentDetail 컴포넌트
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        axios.get('/api/hello') //원하는 url작성
-            .then(response => {
-                console.log(response);
-                return response.data; 
-            })
-            .then(message => {
-                setMessage(message);
-                console.log('message',message);
-            })
-            .catch(message => {
-                setMessage('실패');
-            })
-            ;
-    }, [])
-
     return (
-        <div>
-            <h4>백엔드의 데이터 : {message}</h4>
-        </div>
-    )
-
+        <Router>
+            <Routes>
+                {/* 메인 페이지로 접근했을 때 보여줄 컴포넌트 */}
+                <Route path="/" element={<RecruitmentForm />} />
+                {/* 상세 페이지의 경로와 매칭될 컴포넌트 */}
+                <Route path="/recruitments/detail/:id" element={<RecruitmentDetail />} />
+                {/* 다른 모든 경로에 대한 처리. 404 페이지나 메인 페이지 리다이렉트 등의 로직을 추가할 수 있습니다. */}
+            </Routes>
+        </Router>
+    );
 }
 
-export default App
+export default App;
+
