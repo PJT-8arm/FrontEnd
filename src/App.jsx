@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import LoginPage from './LoginPage';
+import './components/signUp/signup.css';
+import RegisterPage from './RegisterPage';
+import Signup from './Signup';
+import TestComponent from './TestComponent';
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        axios.get('/api/hello') //원하는 url작성
-            .then(response => {
-                console.log(response);
-                return response.data; 
-            })
-            .then(message => {
-                setMessage(message);
-                console.log('message',message);
-            })
-            .catch(message => {
-                setMessage('실패');
-            })
-            ;
-    }, [])
-
     return (
-        <div>
-            <h4>백엔드의 데이터 : {message}</h4>
-        </div>
+        <Outlet />
     )
-
+        
 }
 
-export default App
+export default App;

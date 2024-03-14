@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  font-family: 'Arial, sans-serif';
+  background-color: #f0f0f0;
+  padding: 20px;
+  height: 75vh;
+}
+
+.listItem {
+  margin-bottom: 10px;
+}
