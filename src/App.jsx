@@ -2,17 +2,24 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecruitmentForm from './RecruitmentForm';
 import RecruitmentDetail from './RecruitmentDetail'; // 임포트한 RecruitmentDetail 컴포넌트
+import Navbar from './Navbar';
+import Home from './pages/Home';
+import Appointment from './pages/Appointment';
+import Ranking from './pages/Ranking';
+import Chat from './pages/Chat';
+import Mypage from './pages/Mypage';
 
 function App() {
     return (
         <Router>
             <Routes>
-                {/* 메인 페이지로 접근했을 때 보여줄 컴포넌트 */}
-                <Route path="/" element={<RecruitmentForm />} />
-                {/* 상세 페이지의 경로와 매칭될 컴포넌트 */}
-                <Route path="/recruitments/detail/:id" element={<RecruitmentDetail />} />
-                {/* 다른 모든 경로에 대한 처리. 404 페이지나 메인 페이지 리다이렉트 등의 로직을 추가할 수 있습니다. */}
+                <Route path='/' element={<Home/>}></Route>
+                <Route path='/appointment' element={<Appointment/>}></Route>
+                <Route path='/ranking' element={<Ranking/>}></Route>
+                <Route path='/chat' element={<Chat/>}></Route>
+                <Route path='/mypage' element={<Mypage/>}></Route>
             </Routes>
+            <Navbar />
         </Router>
     );
 }
