@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecruitmentForm from './RecruitmentForm';
 import RecruitmentDetail from './RecruitmentDetail'; // 임포트한 RecruitmentDetail 컴포넌트
 import Navbar from './Navbar';
-import Appointment from './pages/Appointment';
-import Ranking from './pages/Ranking';
-import Chat from './pages/Chat';
-import Mypage from './pages/Mypage';
-import Login from './pages/Login';
-import Home from './pages/Home';
+import Appointment from './components/appointment/Appointment';
+import Ranking from './components/ranking/Ranking';
+import Chat from './components/chat/Chat';
+import Mypage from './components/mypage/Mypage';
+import LoginPage from './components/login/LoginPage';
+import Home from './components/Home';
 
 function App() {
   const [isLogined, setlogin] = useState(true);
@@ -30,7 +30,9 @@ function App() {
           {/* 마이페이지 화면으로 접근했을 때 보여줄 컴포넌트 */}
           <Route path="/mypage" element={<Mypage />}></Route>
           {/* 로그인 화면으로 접근했을 때 보여줄 컴포넌트 */}
-          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/login" element={<LoginPage />} />
+          {/* 회원가입 페이지 */}
+          <Route path="/register" element={<RegisterPage />} />
           {/* 메인 페이지로 접근했을 때 보여줄 컴포넌트 */}
           <Route path="/" element={<Home />} />
           {/* 상세 페이지의 경로와 매칭될 컴포넌트 */}
@@ -45,4 +47,3 @@ function App() {
 }
 
 export default App;
-
