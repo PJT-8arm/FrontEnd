@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function navbar(props) {
+function navbar({isLogined}) {
     return (
         <div>
             <ul>
@@ -18,7 +18,7 @@ function navbar(props) {
                     <Link to="/chat">채팅</Link>
                 </li>
                 <li>
-                    <Link to="/mypage">마이페이지</Link>
+                    {isLogined ? (<Link to="/mypage">마이페이지</Link>):(<Link to="/login">로그인</Link>)}
                 </li>
             </ul>
         </div>
