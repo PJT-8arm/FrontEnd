@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}", // 리액트 컴포넌트 파일 포함
   ],
   theme: {
-    extend: {},
+    extend: { },
   },
   plugins: [require('daisyui')],
+  daisyui:{
+    themes: ["light"],
+    styled: true,
+  },
 }

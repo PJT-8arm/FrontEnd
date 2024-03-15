@@ -34,8 +34,8 @@ const RecruitmentForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='container flex'>
-            <input className='input input-bordered w-full max-w-xs'
+        <form onSubmit={handleSubmit}>
+            <input
                 type="text"
                 name="title"
                 value={formData.title}

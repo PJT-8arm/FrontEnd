@@ -9,6 +9,8 @@ import Chat from './components/chat/Chat';
 import Mypage from './components/mypage/Mypage';
 import LoginPage from './components/login/LoginPage';
 import Home from './components/Home';
+import RegisterPage from './RegisterPage';
+import './App.css';
 
 function App() {
   const [isLogined, setlogin] = useState(true);
@@ -19,7 +21,7 @@ function App() {
         <button onClick={() => {
           setlogin(isLogined ? false : true);
           console.log("isLogined:", isLogined);
-        }}>{isLogined ? '로그인' :'로그아웃'}</button>
+        }}>{isLogined ? '로그아웃' : '로그인'}</button>
         <Routes>
           {/* 약속 화면으로 접근했을 때 보여줄 컴포넌트 */}
           <Route path="/appointment" element={<Appointment />}></Route>
@@ -39,7 +41,9 @@ function App() {
           <Route path="/recruitments/detail/:id" element={<RecruitmentDetail />} />
           {/* 다른 모든 경로에 대한 처리. 404 페이지나 메인 페이지 리다이렉트 등의 로직을 추가할 수 있습니다. */}
         </Routes>
-        <Navbar isLogined={isLogined} />
+        <footer>
+          <Navbar isLogined={isLogined} />
+        </footer>
       </Router>
 
     </>
